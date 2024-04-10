@@ -3,31 +3,104 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*{
+  scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
+}
+/* 
+.sample{
+  background-color: rgb(33, 22, 0);
+} */
+
+.shape-blob {
+  height: 60px;
+  width: 80px;
+  border-radius: 40% 50% 30% 40%;
+  animation: transform 5s ease-in-out infinite both alternate;
+  opacity: 0.7;
+
+  /* movement_one 12s ease-in-out infinite both; */
+  /* position: absolute;
+  left: 75%;
+  top: 40%; */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.shape-blob.one {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  left: -40px;
+  bottom: -130px;
+  /* background: #4eaeff; */
+  /* transform: rotate(-180deg); */
+
+  /* -webkit-filter: blur(15px);
+  filter: blur(15px); */
+  -webkit-filter: blur(5px) contrast(10) brightness(-50);
+  filter: blur(5px) contrast(10) brightness(-50);
+
+  /* animation: transform 17s ease-in-out infinite both alternate; */
+  /* animation: transform 17s ease-in-out infinite both alternate,
+    movement_two 13s ease-in-out infinite both; */
 }
+
+.shape-blob.second {
+  /* background: #0eafff; */
+  height: 400px;
+  width: 400px;
+  right: -140px;
+  position: absolute;
+  top: -100px;
+  transform: rotate(-180deg);
+  /* filter: blur(-140px); */
+  /* animation: transform 7s ease-in-out infinite both alternate; */
+  /* animation: transform 7s ease-in-out infinite both alternate,
+    movement_two 23s ease-in-out infinite both; */
+}
+
+/* @keyframes transform {
+  0%,
+  100% {
+    border-radius: 33% 67% 70% 30% / 30% 40% 70% 70%;
+  }
+  20% {
+    border-radius: 37% 63% 51% 49% / 37% 35% 35% 63%;
+  }
+  40% {
+    border-radius: 36% 64% 64% 36% / 64% 48% 52% 26%;
+  }
+  60% {
+    border-radius: 37% 63% 51% 49% / 30% 30% 70% 73%;
+  }
+  80% {
+    border-radius: 40% 60% 42% 58% / 51% 51% 49% 59%;
+  }
+} */
+
+/* @keyframes movement_one {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: translate(50%, 20%) rotateY(10deg) scale(1);
+  }
+} */
+
+/* @keyframes movement_two {
+  0%,
+  500% {
+    transform: none;
+  }
+  50% {
+    transform: translate(50%, 20%) rotate(-200deg) scale(1.3);
+  }
+} */
