@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import Image from "next/image";
 import NavbarData from "@/data/NavbarData";
@@ -27,7 +27,13 @@ const sidebar = {
 };
 
 const MobileNav = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  // const [isOpen, toggleOpen] = useCycle(false, true);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuOpen = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <motion.nav
@@ -63,6 +69,7 @@ const MobileNav = () => {
                 initial={"hiddenVarient"}
                 animate={"revealedVarient"}
                 transition={{ delay: index * 0.3, duration: 0.5 }}
+                onClick={handleMenuOpen}
                 className="font-semibold text-2xl"
               >
                 <Link href={`#${link.toLowerCase()}`}>{link}</Link>
@@ -75,6 +82,7 @@ const MobileNav = () => {
               initial={"hiddenVarient"}
               animate={"revealedVarient"}
               transition={{ delay: 0.8, duration: 0.5 }}
+              onClick={handleMenuOpen}
               className="relative w-32 shadow-xl  inline-flex h-10 overflow-hidden rounded-full p-[1px] px-[1.5px]"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFA800_0%,#FFFFFF_50%,#FFA800_100%)]"></span>
@@ -85,16 +93,28 @@ const MobileNav = () => {
           </Link>
         </motion.ul>
       )}
-      <MenuToggle toggle={toggleOpen} />
+      {/* <MenuToggle /> */}
+      {/* Mobile Menu toggle */}
+      <button
+        onClick={handleMenuOpen}
+        className="pointer-events-auto absolute right-4 top-[18px] z-30"
+      >
+        <Image
+          src={NavbarData.sidebarIcon}
+          alt="Shadient.co"
+          priority
+          className="w-7"
+        />
+      </button>
     </motion.nav>
   );
 };
 
 export default MobileNav;
 
-const MenuToggle = ({ toggle }: { toggle: any }) => (
+const MenuToggle = () => (
   <button
-    onClick={toggle}
+    // onClick={handleMenuOpen}
     className="pointer-events-auto absolute right-4 top-[18px] z-30"
   >
     <Image

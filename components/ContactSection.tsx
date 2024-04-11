@@ -1,15 +1,13 @@
 import { ConnectWithIdeaData } from "@/data/ConnectIdeaSection";
 import React from "react";
-import EmailInput from "./EmailInput";
 import { ContactForm } from "./ContactForm";
 import AnimatedBtn from "./widgets/AnimatedBtn";
 import Link from "next/link";
 
-const ConnectIdeaSection = () => {
-
+const ContactSection = () => {
   return (
     <div id="contact" className="w-full py-16 bg-bgSecondary space-y-5">
-      <div className="w-11/12 m-auto p-8 sm:p-10 md:p-16 bg-primary text-black flex max-lg:flex-col justify-center items-start gap-10 rounded-md">
+      <div className="w-11/12 m-auto p-5  sm:p-10 md:p-16  sm:bg-bgPrimary md:bg-primary text-white md:text-black flex max-lg:flex-col justify-center items-start gap-10 rounded-md">
         <div className="lg:w-10/12 space-y-5 text-center lg:text-left">
           <h3 className="text-3xl md:text-4xl font-bold">
             {ConnectWithIdeaData.heading}
@@ -30,7 +28,7 @@ const ConnectIdeaSection = () => {
   );
 };
 
-export default ConnectIdeaSection;
+export default ContactSection;
 
 {
   /* <h3 className="text-3xl font-bold">{ConnectWithIdeaData.heading}</h3>

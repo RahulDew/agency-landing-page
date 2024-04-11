@@ -13,18 +13,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
         primary: "#FFA800",
         secondary: "#8474C4",
         firstBlob: "#EF9364",
         secondBlob: "#8B7BCF",
         borderColor: "#A1AEBF",
-        bgPrimary: "#FFFFFF",
+        bgPrimary: "#000000",
         bgSecondary: "#110F0F",
         // bgSecondary: "#0F0F0F",
       },

@@ -2,7 +2,7 @@
 import React from "react";
 import { Label } from "./form/Label";
 import { Input, Textarea } from "./form/Input";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 export function ContactForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

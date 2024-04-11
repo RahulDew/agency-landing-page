@@ -1,23 +1,16 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-// import { cn } from "@/utils/cn";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
-export const TestimonialSlider = ({
-  testimonials,
-  direction = "right",
+const Slider = ({
+  children,
+  direction = "left",
   speed = "fast",
   pauseOnHover = true,
+  className,
 }: {
-  testimonials: {
-    ProfileImg: any;
-    // for SVG type: React.FC<React.SVGProps<SVGSVGElement>>
-    name: string;
-    from: string;
-    testimonial: string;
-  }[];
+  children: ReactNode;
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -84,35 +77,14 @@ export const TestimonialSlider = ({
         className={cn(
           " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
-          pauseOnHover && "hover:[animation-play-state:paused]"
+          pauseOnHover && "hover:[animation-play-state:paused]",
+          className
         )}
       >
-        {testimonials.map((Testimonial, idx) => (
-          <li
-            className="w-[250px] md:w-[350px] max-w-full relative rounded-md bg-bgSecondary border border-borderColor hover:border-primary flex flex-col justify-start items-start gap-4 flex-shrink-0 px-8 py-6 duration-300"
-            key={idx}
-          >
-            <div className="flex justify-start items-start gap-2">
-              <Image
-                priority
-                src={Testimonial.ProfileImg}
-                alt={Testimonial.name}
-              />
-              <div>
-                <span className="text-sm font-bold">{Testimonial.name}</span>
-                <p className="text-sm text-left opacity-60">
-                  {Testimonial.from}
-                </p>
-              </div>
-            </div>
-            <p className="text-left text-base font-light">
-              {Testimonial.testimonial}
-            </p>
-          </li>
-        ))}
+        {children}
       </ul>
     </div>
   );
 };
 
-export default TestimonialSlider;
+export default Slider;
