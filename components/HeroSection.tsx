@@ -6,7 +6,7 @@ import EmailInput from "./EmailInput";
 const HeroSection = () => {
   return (
     <section id="#" className="min-h-screen w-full">
-      <Navbar />
+      {/* <Navbar /> */}
       <div
         style={{
           background: `url("${HeroSectionData.gridBackgroundUrl}")`,

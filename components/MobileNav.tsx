@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import NavbarData from "@/data/NavbarData";
 import { reveal } from "@/lib/utils";
@@ -27,7 +27,6 @@ const sidebar = {
 };
 
 const MobileNav = () => {
-  // const [isOpen, toggleOpen] = useCycle(false, true);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,11 +71,11 @@ const MobileNav = () => {
                 onClick={handleMenuOpen}
                 className="font-semibold text-2xl"
               >
-                <Link href={`#${link.toLowerCase()}`}>{link}</Link>
+                <Link href={`/#${link.toLowerCase()}`}>{link}</Link>
               </motion.li>
             ))}
           </div>
-          <Link href={"#contact"}>
+          <Link href={"/#contact"}>
             <motion.button
               variants={reveal}
               initial={"hiddenVarient"}

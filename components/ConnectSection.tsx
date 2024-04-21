@@ -2,6 +2,7 @@ import React from "react";
 import { ConnectUsData } from "@/data/ConnectSection";
 import Image from "next/image";
 import AnimatedBtn from "./widgets/AnimatedBtn";
+import { BeamsBackground } from "./widgets/BeamsBackground";
 
 const ConnectSection = () => {
   return (

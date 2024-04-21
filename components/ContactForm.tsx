@@ -3,43 +3,93 @@ import React from "react";
 import { Label } from "./form/Label";
 import { Input, Textarea } from "./form/Input";
 import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+
+type FormInput = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export function ContactForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted");
+  // };
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+    reset,
+  } = useForm<FormInput>();
+
+  // console.log(FormData);
+
+  async function onSubmit(formData: FormInput) {
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }),
+    }).then(async (res) => {
+      // server response
+      let response = await res.json();
+      console.log(response);
+
+      console.log("Your email message has been sent successfully");
+    });
+
+    reset();
+  }
   return (
-    <div className="max-w-2xl w-full mx-auto rounded-lg p-5 md:p-8 shadow-input bg-bgSecondary border border-borderColor">
-      <form className="my-8 space-y-8" onSubmit={handleSubmit}>
-        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-5 mb-4">
-          <LabelInputContainer>
-            <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
-          </LabelInputContainer>
-          <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
-          </LabelInputContainer>
-        </div>
+    <div className="max-w-2xl w-full mx-auto rounded-lg p-5 md:p-8 shadow-input bg-bgSecondary border border-borderColor backdrop:blur-3xl">
+      <form
+        className="my-8 space-y-8 bg-bgSecondary"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <LabelInputContainer>
+          <Label htmlFor="firstname">Your Name</Label>
+          <Input
+            {...register("name")}
+            id="firstname"
+            placeholder="Tyler Durden"
+            type="text"
+          />
+        </LabelInputContainer>
+
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            {...register("email")}
+            id="email"
+            placeholder="projectmayhem@fc.com"
+            type="email"
+          />
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-4">
           <Label htmlFor="message">Message</Label>
-          <Textarea id="message" placeholder="Hi... Want to meet" />
+          <Textarea
+            {...register("message")}
+            id="message"
+            placeholder="Hi... Want to meet"
+          />
         </LabelInputContainer>
 
         <button
           className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-bgSecondary border border-borderColor border-opacity-50 hover:border-none w-44 sm:w-56 text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
+          disabled={isSubmitting}
         >
           CONNECT &rarr;
           <BottomGradient />
         </button>
-
       </form>
     </div>
   );

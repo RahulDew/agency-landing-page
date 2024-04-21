@@ -19,7 +19,6 @@ export default function Home() {
       <PricingSection />
       <WorkingsSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 }

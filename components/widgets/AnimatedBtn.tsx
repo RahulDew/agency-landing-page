@@ -8,7 +8,7 @@ const AnimatedBtn: React.FC<ChildProps> = ({ children }) => {
   return (
     <button className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] px-[1.8px] focus:outline-none focus:ring-offset-2 focus:ring-offset-slate-50">
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFA800_0%,#FFFFFF_50%,#FFA800_100%)]"></span>
-      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-bgSecondary px-4 py-1 text-sm font-medium text-primary backdrop-blur-3xl">
+      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-bgSecondary hover:bg-primary px-4 py-1 text-sm font-semibold hover:font-bold text-primary hover:text-black backdrop-blur-3xl duration-300">
         {children}
       </span>
     </button>
@@ -16,3 +16,9 @@ const AnimatedBtn: React.FC<ChildProps> = ({ children }) => {
 };
 
 export default AnimatedBtn;
+{/* <button className="group relative inline-flex h-10 overflow-hidden rounded-full p-[1px] px-[1.8px] focus:outline-none focus:ring-offset-2 focus:ring-offset-slate-50">
+  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFA800_0%,#FFFFFF_50%,#FFA800_100%)] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,#FFFFFF_0%,#8474C4_50%,#FFFFFF_100%)] "></span>
+  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-bgSecondary  px-4 py-1 text-sm font-semibold hover:font-bold text-primary group-hover:text-secondary hover:text-black backdrop-blur-3xl duration-300">
+    {children}
+  </span>
+</button>; */}

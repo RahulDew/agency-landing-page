@@ -3,16 +3,23 @@ import React from "react";
 import rightArrow from "@/public/assets/rightArrow.svg";
 import Image from "next/image";
 import AnimatedBtn from "./widgets/AnimatedBtn";
+import Link from "next/link";
 
 const WorkingsSection = () => {
   return (
-    <section id="resources" className="py-20 px-5 sm:px-10 md:px-20 flex flex-col lg:flex-row justify-start items-start gap-16">
+    <section
+      id="resources"
+      className="py-20 px-5 sm:px-10 md:px-20 flex flex-col lg:flex-row justify-start items-start gap-16"
+    >
       <div className="w-full lg:w-6/12 xl:w-full space-y-5 max-lg:text-center">
         <h3 className="text-3xl md:text-4xl font-semibold">
           {OurWorksSectionData.title}
         </h3>
         <p className="opacity-60 font-extralight">{OurWorksSectionData.desc}</p>
-        <AnimatedBtn>SHOW MORE</AnimatedBtn>
+        <br />
+        <Link href={"/projects"}>
+          <AnimatedBtn>SHOW MORE</AnimatedBtn>
+        </Link>
       </div>
       <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-5 m-auto ">
         {OurWorksSectionData.OurWorks.map((ourWork, index) => (
