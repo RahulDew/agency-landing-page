@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const verifiedDomain = process.env.RESEND_VERIFIED_DOMAIN;
-// const adminDomain = process.env.ADMIN_DOMAIN;
+
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
 

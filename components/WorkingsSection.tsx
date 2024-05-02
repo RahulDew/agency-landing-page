@@ -21,10 +21,10 @@ const WorkingsSection = () => {
           <AnimatedBtn>SHOW MORE</AnimatedBtn>
         </Link>
       </div>
-      <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-5 m-auto ">
+      <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-5 m-auto">
         {OurWorksSectionData.OurWorks.map((ourWork, index) => (
           <div key={index} className="flex flex-col gap-5">
-            {ourWork.list.map(({ boxHeight, tag, title, more }, idx) => (
+            {ourWork.list.map(({ boxHeight, tag, title }, idx) => (
               <div
                 key={idx}
                 style={{ height: `${boxHeight}px` }}
