@@ -8,20 +8,33 @@ export const FooterData = {
     textData: "Get latest updates",
   },
   footerList: [
-    { name: "Company", values: ["About us", "Team", "Careers"] },
+    {
+      name: "Company",
+      values: [{ data: "About us" }, { data: "Team" }, { data: "Careers" }],
+    },
     {
       name: "Services",
       values: [
-        "Branding",
-        "Web development",
-        "Digital marketing",
-        "Mobile app",
-        "SEO",
-        "User testing",
+        { data: "Branding" },
+        { data: "Web development" },
+        { data: "Digital marketing" },
+        { data: "Mobile app" },
+        { data: "SEO" },
+        { data: "User testing" },
       ],
     },
-    { name: "Resources", values: ["Blog", "Case study", "Testimonials"] },
-    { name: "FollowUs", values: ["Instagram", "Figma"] },
+    {
+      name: "Resources",
+      values: [
+        { data: "Blog" },
+        { data: "Case study" },
+        { data: "Testimonials" },
+      ],
+    },
+    {
+      name: "FollowUs",
+      values: [{ data: "Instagram" }, { data: "Figma" }],
+    },
   ],
 };
 

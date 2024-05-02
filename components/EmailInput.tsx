@@ -22,16 +22,18 @@ const EmailInput = ({ isButton = true }: { isButton: Boolean }) => {
       },
 
       body: JSON.stringify({
-        // name: formData.name,
         email: formData.email,
-        // message: formData.message,
       }),
     }).then(async (res) => {
-      // Toast notification
-      let response = await res.json();
-      console.log(response);
-
-      console.log("Your email message has been sent successfully");
+      const response = await res.json();
+      // console.log(response);
+      
+      if (response.status === 250) {
+        alert("Your email message has been sent successfully");
+      } else {
+        alert(`${response.msg} Please try again`);
+      }
+      // console.log("Your email message has been sent successfully");
     });
 
     reset();

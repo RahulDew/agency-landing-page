@@ -4,6 +4,9 @@ import NavbarData from "@/data/NavbarData";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
 import AnimatedBtn from "./widgets/AnimatedBtn";
+import { Archivo_Black } from "next/font/google";
+
+const archivo_black = Archivo_Black({ subsets: ["latin"], weight: "400" });
 
 const Navbar = () => {
   return (
@@ -13,9 +16,11 @@ const Navbar = () => {
           src={NavbarData.logo}
           alt="Shadient.co"
           priority
-          className="max-md:w-7"
+          className="max-md:w-7 w-8"
         />
-        <span className="text-xl md:text-2xl font-extrabold">
+        <span
+          className={`${archivo_black.className} text-xl md:text-2xl font-extrabold`}
+        >
           {NavbarData.logoText}
         </span>
       </Link>
@@ -23,10 +28,10 @@ const Navbar = () => {
         {NavbarData.links.map((link, index) => (
           <Link
             key={index}
-            href={`/#${link.toLowerCase()}`}
+            href={`/#${link.data.toLowerCase()}`}
             className="text-base font-semibold hover:text-primary duration-300"
           >
-            {link}
+            {link.data}
           </Link>
         ))}
         <Link href={"/#contact"}>

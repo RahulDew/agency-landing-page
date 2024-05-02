@@ -1,10 +1,10 @@
 import logo from "@/public/logo.svg";
-import SidebarIcon from "@/public/assets/SidebarIcon.svg"
+import SidebarIcon from "@/public/assets/SidebarIcon.svg";
 
 const NavbarData = {
   logo: logo,
-  logoText: "Shadient.co",
-  links: ["Company", "Services", "Resources"],
+  logoText: "CodeCamber",
+  links: [{ data: "Company" }, { data: "Services" }, { data: "Resources" }],
   button: "CONNECT",
   sidebarIcon: SidebarIcon,
 };

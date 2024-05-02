@@ -2,6 +2,9 @@ import React from "react";
 import { FooterData } from "@/data/FooterSection";
 import Image from "next/image";
 import EmailInput from "./EmailInput";
+import { Archivo_Black } from "next/font/google";
+
+const archivo_black = Archivo_Black({ subsets: ["latin"], weight: "400" });
 
 const Footer = () => {
   const { footerList, footerLogoData, createdBy } = FooterData;
@@ -13,12 +16,12 @@ const Footer = () => {
             <div key={index} className="flex flex-col w-32 sm:text-left">
               <h4 className="font-semibold text-base">{list.name}</h4>
               <ul className="space-y-4 my-5">
-                {list.values.map((value, i) => (
+                {list.values.map((value, idx) => (
                   <li
-                    key={i}
+                    key={idx}
                     className="text-sm opacity-60 hover:text-primary cursor-pointer duration-300"
                   >
-                    {value}
+                    {value.data}
                   </li>
                 ))}
               </ul>
@@ -28,8 +31,15 @@ const Footer = () => {
 
         <div className="max-w-[300px] lg:w-[260px] max-lg:my-10 max-lg:mx-auto space-y-5 flex justify-center items-center lg:justify-start lg:items-start flex-col">
           <div className="flex justify-center items-center gap-3">
-            <Image src={footerLogoData.logo} alt="Shadient.co" priority />
-            <span className="text-2xl font-extrabold">
+            <Image
+              src={footerLogoData.logo}
+              alt="Shadient.co"
+              priority
+              className="max-md:w-7 w-8"
+            />
+            <span
+              className={`${archivo_black.className} text-2xl font-extrabold`}
+            >
               {footerLogoData.logoText}
             </span>
           </div>

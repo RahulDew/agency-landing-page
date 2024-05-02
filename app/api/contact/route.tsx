@@ -25,13 +25,14 @@ export async function POST(req: NextRequest) {
         <ContactEmailTemplate email={email} name={name} message={message} />
       ),
     });
-
-    console.log("isSentTOAdmin: ", isSentTOAdmin);
-    console.log("isSentTOCustomer: ", isSentTOUser);
-    return Response.json({ isSentTOAdmin, isSentTOUser, msg: "Email Sent" });
+    // console.log("isSentTOAdmin: ", isSentTOAdmin);
+    // console.log("isSentTOCustomer: ", isSentTOUser);
+    if (isSentTOAdmin.data && isSentTOUser.data) {
+      return Response.json({ msg: "Email Sent!", status: 250 });
+    }
+    return Response.json({ msg: "Email sent failed!", status: 521 });
   } catch (error) {
-    console.log(error);
-
-    return Response.json({ error });
+    // console.log(error);
+    return Response.json({ msg: "Email sent failed!", status: 521 });
   }
 }

@@ -46,9 +46,6 @@ const CompaniesSection = () => {
           ))}
         </Slider>
       </div>
-
-      {/* <marquee scrollamount="12" direction="right"> */}
-      {/* </marquee> */}
     </section>
   );
 };

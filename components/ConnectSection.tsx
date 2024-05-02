@@ -2,7 +2,7 @@ import React from "react";
 import { ConnectUsData } from "@/data/ConnectSection";
 import Image from "next/image";
 import AnimatedBtn from "./widgets/AnimatedBtn";
-import { BeamsBackground } from "./widgets/BeamsBackground";
+import Link from "next/link";
 
 const ConnectSection = () => {
   return (
@@ -25,8 +25,13 @@ const ConnectSection = () => {
         <p className="text-base font-extralight opacity-60">
           {ConnectUsData.desc}
         </p>
-
-        <AnimatedBtn>LET'S CONNECT</AnimatedBtn>
+        <br />
+        <Link href={"/"}>
+          <AnimatedBtn>LET'S CONNECT</AnimatedBtn>
+        </Link>
+        {/* <Link>
+          <AnimatedBtn>LET'S CONNECT</AnimatedBtn>
+        </Link> */}
       </div>
     </section>
   );

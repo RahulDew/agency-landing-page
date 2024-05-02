@@ -50,28 +50,3 @@ export const availableSVG = {
   availablePrimary,
   availableSecondary,
 };
-
-// detailsList: {
-//   details: [
-//     {
-//       name: "",
-//       value: "Individual configuration",
-//     },
-//     {
-//       name: "",
-//       value: "No setup, or hidden fees",
-//     },
-//     {
-//       name: "Team size: ",
-//       value: "1 developer",
-//     },
-//     {
-//       name: "Premium support: ",
-//       value: "6 months",
-//     },
-//     {
-//       name: "Free updates: ",
-//       value: "6 months",
-//     },
-//   ],
-// },

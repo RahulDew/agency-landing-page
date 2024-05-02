@@ -39,10 +39,13 @@ export function ContactForm() {
       }),
     }).then(async (res) => {
       // server response
-      let response = await res.json();
-      console.log(response);
-
-      console.log("Your email message has been sent successfully");
+      const response = await res.json();
+      if (response.status === 250) {
+        alert("Your contact is recorded we'll get back to you!");
+      } else {
+        alert(`${response.msg} Please try again`);
+      }
+      // console.log(response);
     });
 
     reset();
